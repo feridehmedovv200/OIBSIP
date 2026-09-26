@@ -1,1 +1,184 @@
+<div align="center">
 
+# 🛍️ Customer Segmentation Analytics
+### End-to-End RFM Analysis & K-Means Clustering for Data-Driven Customer Insights
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Wrangling-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-KMeans-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge&logo=plotly&logoColor=white)](https://matplotlib.org/)
+[![Seaborn](https://img.shields.io/badge/Seaborn-Statistical%20Plots-3776AB?style=for-the-badge)](https://seaborn.pydata.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+</div>
+
+---
+
+## 📌 Project Overview & Business Problem
+
+Understanding **who your customers are** is the foundation of any effective retention, marketing, or personalization strategy. Most e-commerce businesses treat every customer identically — sending the same promotions to a first-time buyer and a loyal repeat purchaser — which leads to wasted marketing spend and missed retention opportunities.
+
+This project solves that problem by building an **RFM (Recency, Frequency, Monetary) based customer segmentation model** on raw e-commerce transaction data. Using unsupervised machine learning (**K-Means Clustering**), customers are grouped into distinct, actionable segments — enabling targeted marketing, churn prevention, and revenue optimization strategies.
+
+> 💡 **Business Value:** Instead of guessing which customers to prioritize, this pipeline delivers data-backed customer personas (e.g., *Loyal High-Spenders*, *At-Risk Customers*, *Recent New Buyers*) that stakeholders can act on immediately.
+
+---
+
+## ✨ Key Features
+
+- 🧹 **Automated Data Cleaning Pipeline** — Handles missing values, filters incomplete/cancelled orders, and parses transaction dates.
+- 📊 **RFM Feature Engineering** — Calculates Recency, Frequency, and Monetary metrics per customer from raw invoice-level data.
+- 🔄 **Log Transformation & Standardization** — Normalizes skewed RFM distributions using `log1p` and `StandardScaler` for clustering readiness.
+- 🎯 **Optimal Cluster Selection (Elbow Method)** — Determines the ideal number of customer segments using inertia curves.
+- 🧠 **K-Means Clustering Engine** — Segments customers into meaningful, statistically distinct groups.
+- 📈 **Rich Visual Analytics** — Scatter plots (Recency vs. Monetary, Frequency vs. Monetary) and bar charts for cluster distribution.
+- 🧾 **Cluster Profiling Summary** — Aggregated statistics (mean Recency, Frequency, Monetary, and customer count) per segment for business interpretation.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+| Layer | Tools & Libraries |
+|---|---|
+| **Language** | Python 3.10+ |
+| **Data Manipulation** | Pandas, NumPy |
+| **Machine Learning** | Scikit-learn (`KMeans`, `StandardScaler`) |
+| **Visualization** | Matplotlib, Seaborn |
+| **Environment** | Jupyter Notebook / Google Colab |
+| **Data Source** | E-commerce Transactional Dataset (`.csv`) |
+
+### 🏗️ Pipeline Architecture
+
+```text
+Raw Transaction Data (CSV)
+        │
+        ▼
+Data Cleaning & Filtering (Order Status = Completed)
+        │
+        ▼
+RFM Metric Computation (Recency, Frequency, Monetary)
+        │
+        ▼
+Log Transform + Standard Scaling
+        │
+        ▼
+Elbow Method → Optimal K Selection
+        │
+        ▼
+K-Means Clustering (k = 4)
+        │
+        ▼
+Cluster Visualization & Business Profiling
+```
+
+---
+
+## 📁 Project Directory Structure
+
+```text
+customer-segmentation-analytics/
+│
+├── data/
+│   └── E-Commerce.csv                # Raw transactional dataset
+│
+├── notebooks/
+│   └── Customer_Segmentation.ipynb   # Main analysis notebook (RFM + K-Means)
+│
+├── outputs/
+│   ├── elbow_curve.png               # Optimal K visualization
+│   ├── recency_vs_monetary.png       # Cluster scatter plot
+│   └── frequency_vs_monetary.png     # Cluster scatter plot
+│
+├── requirements.txt                  # Python dependencies
+├── LICENSE                           # MIT License
+└── README.md                         # Project documentation
+```
+
+---
+
+## ⚙️ Installation & Quick Start Guide
+
+### ✅ Prerequisites
+
+- Python **3.10+**
+- Jupyter Notebook or Google Colab
+- pip package manager
+
+### 🚀 Setup Steps
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/<your-username>/customer-segmentation-analytics.git
+cd customer-segmentation-analytics
+
+# 2️⃣ Create a virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+
+# 3️⃣ Install dependencies
+pip install -r requirements.txt
+
+# 4️⃣ Launch Jupyter Notebook
+jupyter notebook notebooks/Customer_Segmentation.ipynb
+```
+
+### 📦 requirements.txt
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyter
+```
+
+---
+
+## 🔍 Key Insights & Findings
+
+| Metric | Insight |
+|---|---|
+| 🧮 **Customer Base** | Analysis performed on **1,968 unique customers** derived from **2,245 completed transactions**. |
+| 🎯 **Optimal Segments** | Elbow method confirmed **k = 4** as the optimal cluster count for RFM segmentation. |
+| 💰 **High-Value Segment** | A distinct cluster of customers showed **higher Frequency & Monetary value** despite moderate Recency — flagged as *Loyal Customers*. |
+| ⚠️ **At-Risk Segment** | A large cluster (**972 customers**) exhibited **very high Recency (~1093 days)** and low activity — prime candidates for **re-engagement campaigns**. |
+| 🆕 **New/Active Segment** | One cluster showed **low Recency (~156 days)**, indicating **recently active customers** ideal for loyalty nurturing. |
+| 📉 **Low-Value Segment** | The smallest-spend cluster averaged **~$21.60 Monetary value**, useful for identifying low-engagement or one-time buyers. |
+
+### 📊 Sample Visual Outputs
+
+| Elbow Method | Recency vs. Monetary | Frequency vs. Monetary |
+|:---:|:---:|:---:|
+| ![Elbow](outputs/elbow_curve.png) | ![RvsM](outputs/recency_vs_monetary.png) | ![FvsM](outputs/frequency_vs_monetary.png) |
+
+---
+
+## 🤝 Contributing & License
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](../../issues) or submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author & Contact
+
+<div align="center">
+
+**[Your Name]**
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/<your-username>)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/<your-linkedin>)
+
+⭐ If you found this project helpful, consider giving it a star!
+
+</div>
