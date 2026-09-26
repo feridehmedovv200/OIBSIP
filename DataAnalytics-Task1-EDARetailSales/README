@@ -1,0 +1,20 @@
+# 📊 Retail Sales Exploratory Data Analysis (EDA)
+
+Welcome to the **Retail Sales Exploratory Data Analysis (EDA)** project! This repository contains a comprehensive data analysis workflow built with Python, Pandas, Matplotlib, and Seaborn to extract actionable insights from raw retail transaction data.
+
+---
+
+## 📌 Project Overview
+
+Understanding customer purchasing behavior, sales performance across product categories, and revenue dynamics is critical for retail businesses. This project focuses on cleaning, transforming, and visualizing transaction records to highlight key business metrics and temporal trends.
+
+### 🎯 Key Objectives:
+- Clean and prepare raw retail sales and transaction data.
+- Calculate business metrics: **Gross Revenue**, **Net Revenue**, and **Profit Margins**.
+- Analyze customer demographics (age distribution, purchasing patterns).
+- Evaluate category-level and payment-method performance.
+- Identify sales trends across monthly and quarterly time horizons.
+
+---
+
+## 📁 Repository Structure
