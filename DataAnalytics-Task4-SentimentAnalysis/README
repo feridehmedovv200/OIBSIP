@@ -1,0 +1,54 @@
+<div align="center">
+
+# 🍽️ Amazon Fine Food Reviews — Sentiment Analysis Engine
+### End-to-End NLP Pipeline for Multi-Class Customer Sentiment Classification
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-ML%20Models-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![NLTK](https://img.shields.io/badge/NLTK-NLP%20Toolkit-3776AB?style=for-the-badge)](https://www.nltk.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Wrangling-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge&logo=plotly&logoColor=white)](https://matplotlib.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#-license)
+
+</div>
+
+---
+
+## 📌 Overview & Business Problem
+
+E-commerce platforms accumulate **millions of unstructured text reviews**, making manual sentiment auditing impossible at scale. This project builds an automated **Natural Language Processing (NLP) pipeline** on the **Amazon Fine Food Reviews dataset** (500K+ reviews) to classify customer sentiment into **Negative, Neutral, and Positive** categories.
+
+**Business Value:**
+- 🎯 Enables product teams to instantly surface customer pain points at scale
+- 📉 Detects early warning signs of product quality issues via negative sentiment spikes
+- 🔍 Powers automated review moderation and customer feedback triage systems
+- 📊 Provides a benchmarked, tunable ML baseline for production-grade sentiment classifiers
+
+---
+
+## ✨ Key Features
+
+- 🧹 **Automated Text Preprocessing Pipeline** — HTML/URL stripping, negation-aware stopword filtering, regex tokenization, and Porter Stemming
+- ⚖️ **Stratified Sampling & Class Mapping** — 5-star ratings intelligently mapped to a 3-class sentiment schema (Negative / Neutral / Positive)
+- ☁️ **Sentiment-Specific Word Clouds** — Custom HSL color-coded visualizations per sentiment class with generic-word filtering
+- 🔢 **TF-IDF Vectorization** — Unigram + Bigram features with sublinear term-frequency scaling (100K max features)
+- 🤖 **Dual Model Benchmarking** — `Multinomial Naive Bayes` vs. `Logistic Regression` (class-balanced)
+- 🎛️ **Hyperparameter Tuning** — `GridSearchCV` with 3-fold cross-validation optimizing macro F1-score
+- 📈 **Comprehensive Evaluation Suite** — Accuracy, Precision, Recall, macro/weighted F1, and full classification reports
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+| Layer                  | Technology                                         |
+|-------------------------|-----------------------------------------------------|
+| **Language**            | Python 3.10+                                        |
+| **Data Handling**       | Pandas, NumPy                                        |
+| **NLP Processing**      | NLTK (Stopwords, Porter Stemmer, Regexp Tokenizer)   |
+| **Feature Engineering** | scikit-learn `TfidfVectorizer`                       |
+| **Modeling**            | `MultinomialNB`, `LogisticRegression`, `GridSearchCV`|
+| **Visualization**       | Matplotlib, Seaborn, WordCloud                       |
+| **Environment**         | Jupyter Notebook / Google Colab                      |
+
+**Pipeline Flow:**
